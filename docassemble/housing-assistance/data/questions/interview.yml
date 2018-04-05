@@ -9,6 +9,9 @@ metadata:
     - name: Ari Shapell
   revision_date: 2018-03-27
 ---
+include:
+  - attachment.yml
+---
 question: |
   Please enter your full name.
 fields:
@@ -103,111 +106,81 @@ yesno: experienced_disaster
 ---
 mandatory: True
 question: |
-  Thank you for completing the screening, ${ full_name }
+  Thank you for using the Philly Tenant Assistance Screener, ${ full_name }.
 subquestion: |
   % if is_renter == False:
   This screening tool is meant to be used by renters. If you are a renter and are looking for assistance, please restart the survey.
+  % elif len(sources) == 0:
+  We aren't able to match you with any resources at this time. Please consider talking with your manager about a rent reduction.
   % else:
 
-    % if sources:
-  Thank you for using the Philly Tenant Assistance Screener.
-
+  % if sources:
   Based on the answers you provided to our questions, we think you may be able to seek rental assistance from the following organizations.
 
-    % for source in sources:
-    * ${ source }
-    % endfor
-    % endif
+  % for source in sources:
+  * **${ source['name'] }**: To apply for assistance, you can ${ source['availability'] }
+  % endfor
 
-    % if housing_type == "Public":
-    You should also consider talking with your manager about a rent reduction.
-    % endif
-    % if is_dhs_involved:
-    Before applying for the DHS Prevention Assistance fund, please talk with your social worker
-    % endif
-
-  ### For All Applications
-
-  #### What should I bring when applying for the resources above?
-
-    - Photo ID for all household members age 18 and over
-    - Social Security cards and Birth Certificates for all household members
-    % if monthly_income > 0:
-    - Proof of Income dated within last 30 days
-      - Pay stubs (for last thirty days)
-      - Employment letter (hours, pay date(s), wages/salary)
-      - Award Letter from Social Security office
-      - Any other documentation of income
-    % endif
-    - Proof of Assets, such as bank statements or inheritance award letters
-    - Lease Agreement
-    % if assistance_category == "Rental Arrears":
-    - Eviction Notice and/or Court Documents (if seeking assistance for back rent)
-    % endif
-
-  #### What should I get from my landlord?
-
-    - Rental License, also called a Housing Inspection License. You can lookup your current rental license on the [City of Philadelphia's website](http://www.phila.gov/li/pages/default.aspx).
-    - W-9 signed by landlord. You can find a blank copy of the W9 for your landlord to sign [here](https://www.irs.gov/pub/irs-pdf/fw9.pdf).
-    % if assistance_category == "Rental Arrears":
-    - Letter with current balance owed signed and dated by landlord (if seeking assistance for back rent)
-    % endif
-
-    % if previous_ohs_assistance == False:
-  ### Office of Homeless Services Application
-
-    You may be eligible for housing assistance through the Office of Homeless Services.
-
-    Please make sure to bring the following with you:
-
-    - Documentation from L&I – link to phila.gov/li website where they can look up violations
-    - Medical and/or mental health documentation
-    - Unit must pass OHS inspection for private rentals
-    - If subsidized housing, will need HAP contract, lease, or some other proof
-    - Statement of current balance dated within last 10 days by landlord or property manager
-    - Verification of assistance from other agencies if applicable
-    - For security deposit: letter of approval, inspection request, or other proof of move-in
-    - Landlord’s contact information
-    - All clients are expected to pay a portion of the move in cost or rental balance
-    - Documented income must be sufficient to maintain rent and living expenses
-    - Funds will be issued based on complete application and availability of funds
-    - Other requirements may be imposed by intake worker
-    - Final determination made by OHS administrator – not all applications accepted/funded
-    %endif
-    
-    % if is_veteran:
-  ### Utility Emergency Services Fund Grant Application
-
-    You may be eligible for housing assistance through a UESF Grant.
-
-    Please make sure to bring the following with you:
-
-    - Completed [DD-214 Form](https://www.archives.gov/veterans/military-service-records#table-of-contents)
-    - State Identification or VA medical card with picture (Identification is required for all individuals in the home)
-    - Housing Crisis Documentation. For example, a 10-day Eviction Notice or Court Ordered Eviction Notice
-    % endif
+  % if housing_type == "Public":
+  Please consider talking with your manager about a rent reduction.
+  % endif
+  % endif
 
   % endif
-buttons:
-  - Exit: exit
+attachment code: |
+  [philly_tenant_assistance_screener if (is_renter and len(sources) > 0) else None]
 ---
 reconsider: True
 code: |
+  all_sources = [
+    {
+      'name': 'Germantown Avenue Crisis Ministry',
+      'availability': 'go to 35 W. Chelten Avenue (Located in The First Presbyterian Church in Germantown) Philadelphia, PA 19144 on Monday - Wednesday, 9am - 2pm, or call 215-843-2340',
+      'is_included': zipcode in ['19118', '19119', '19126', '19138', '19144', '19150']
+    },
+    {
+      'name': 'ACHIEVEability',
+      'availability': 'go to 21 S 61st St, Philadelphia, PA 19139 or call 215-748-8800',
+      'is_included': is_between_52_and_67
+    },
+    {
+      'name': 'Utility Emergency Services Fund',
+      'availability': 'go to 1608 Walnut Street, Suite 600 Philadelphia, PA 19103, or call 215-814-6888',
+      'is_included': is_veteran
+    },
+    {
+      'name': 'DHS Prevention Assistance Fund',
+      'availability': 'talk with your social worker',
+      'is_included': is_dhs_involved
+    },
+    {
+      'name': 'Office of Homeless Services',
+      'availability': 'go to the Center City location at 1430 Cherry St, Philadelphia, PA 19102 or the North Philadelphia location at 5252 North 13th St, Philadelphia, PA 19141 on Monday - Thursday, 9am - 3pm or call 215-685-9087',
+      'is_included': previous_ohs_assistance == False
+    },
+    {
+      'name': 'County Assistance Office',
+      'availability': 'go to 801 Market St, Philadelphia, PA 19107 on Monday - Friday, 8am to 5pm, or call 215-560-7226',
+      'is_included': previous_cao_assistance == False
+    },
+    {
+      'name': 'Hebrew Immigrant Aid Society',
+      'availability': 'go to 2100 Arch St, Philadelphia, PA 19103, or call 215-832-0920',
+      'is_included': is_immigrant
+    },
+    {
+      'name': 'Salvation Army',
+      'availability': 'Visit https://pa.salvationarmy.org/greater-philadelphia/greater-philadelphia to see Salvation Army\'s various locations throughout Philadelphia, or call 215-825-4601',
+      'is_included': experienced_disaster
+    },
+    {
+      'name': 'Red Cross',
+      'availability': 'go to 2221 Chestnut St, Philadelphia, PA 19103, or call 215-299-4000',
+      'is_included': experienced_disaster
+    }
+  ]
   sources = []
-  if zipcode in [19118, 19119, 19126, 19138, 19144, 19150]:
-    sources.append("Germantown Avenue Crisis Ministry")
-  if is_between_52_and_67:
-    sources.append("ACHIEVEability")
-  if is_veteran:
-    sources.append("Utility Emergency Services Fund Grant")
-  if is_dhs_involved:
-    sources.append("DHS Prevention Assistance")
-  if previous_ohs_assistance == False:
-    sources.append("Office of Homeless Services")
-  if previous_cao_assistance == False:
-    sources.append("County Assistance Office")
-  if is_immigrant:
-    sources.append("Hebrew Immigrant Aid Society")
-  if experienced_disaster:
-    sources.extend(["Salvation Army", "Red Cross"])
+  for source in all_sources:
+    if source['is_included']:
+      sources.append(source)
 ---
