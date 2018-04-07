@@ -38,10 +38,9 @@ choices:
   - Subsidized/Public Housing: public
 ---
 question: |
-  What is the address of the adverse
-  party?
+  What is your zipcode?
 fields:
-  - Zip Code: zipcode
+  - Zipcode: zipcode
 ---
 question: |
   Do you live between 52nd and 67th Street and Girard to Baltimore Ave?
@@ -65,6 +64,7 @@ question: |
 fields:
   - Number of People: household_size
     datatype: number
+    min: 1
 ---
 question: |
   What is your age?
@@ -132,6 +132,25 @@ attachment code: |
 ---
 reconsider: True
 code: |
+  def is_under_ohs_income_req():
+    """
+    Uses the global monthly_income & household_size variables to determine whether
+    a user is under the annual income requirements set by OHS'
+    homelessness prevention program. These income requirements differ based on
+    the user's household size
+    """
+    max_income_per_household_size = {
+      1: 16900,
+      2: 19300,
+      3: 21700,
+      4: 24300,
+      5: 28440,
+      6: 32580,
+    }
+    household_size_mod = 6 if household_size > 6 else household_size
+    max_income = max_income_per_household_size[household_size_mod]
+    return True if monthly_income * 12 < max_income else False
+
   all_sources = [
     {
       'name': 'Germantown Avenue Crisis Ministry',
@@ -156,7 +175,7 @@ code: |
     {
       'name': 'Office of Homeless Services',
       'availability': 'go to the Center City location at 1430 Cherry St, Philadelphia, PA 19102 or the North Philadelphia location at 5252 North 13th St, Philadelphia, PA 19141 on Monday - Thursday, 9am - 3pm or call 215-685-9087',
-      'is_included': previous_ohs_assistance == False
+      'is_included': (previous_ohs_assistance == False and is_under_ohs_income_req())
     },
     {
       'name': 'County Assistance Office',
