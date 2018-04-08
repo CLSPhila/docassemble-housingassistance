@@ -44,7 +44,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
                 out.setdefault(package, []).append(prefix+name)
     return out
 
-setup(name='docassemble.housing-assistance',
+setup(name='docassemble.housingassistance',
       version='0.0.1',
       description=('Philly Tenant Assistance Screener'),
       author=u'',
@@ -56,5 +56,5 @@ setup(name='docassemble.housing-assistance',
       install_requires=['docassemble', 'docassemble.base'],
       dependency_links=[],
       zip_safe=False,
-      package_data=find_package_data(where='docassemble/housing-assistance/', package='housing-assistance'),
+      package_data=find_package_data(where='docassemble/housingassistance/', package='docassemble.housingassistance'),
      )
