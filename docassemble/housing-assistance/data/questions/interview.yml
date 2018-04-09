@@ -115,7 +115,7 @@ subquestion: |
   % else:
 
   % if sources:
-  Based on the answers you provided to our questions, we think you may be able to seek rental assistance from the following organizations.
+  Based on the answers you provided to our questions, we think you may be able to seek rental assistance from the following organizations. Please note that you will still need to visit and apply separately for assistance at each organization.
 
   % for source in sources:
   * **${ source['name'] }**: To apply for assistance, you can ${ source['availability'] }
