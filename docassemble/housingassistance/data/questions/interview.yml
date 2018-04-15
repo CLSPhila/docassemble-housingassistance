@@ -12,19 +12,6 @@ metadata:
 include:
   - attachment.yml
 ---
-initial: True
-code: |
-  if not user_logged_in():
-    kick_out_user
----
-event: kick_out_user
-question: |
-  You need to log in if you want to use this interview.
-buttons:
-  - Log in: signin
-  - Exit: exit
----
-
 question: |
   Please enter your full name.
 fields:
@@ -129,6 +116,8 @@ subquestion: |
 
   % if sources:
   Based on the answers you provided to our questions, we think you may be able to seek rental assistance from the following organizations. Please note that you will still need to visit and apply separately for assistance at each organization.
+
+  Download the PDF or RTF below for instructions about how to apply for assistance at each organization.
 
   % for source in sources:
   * **${ source['name'] }**: To apply for assistance, you can ${ source['availability'] }
