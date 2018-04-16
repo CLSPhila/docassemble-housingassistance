@@ -9,6 +9,10 @@ metadata:
     - name: Ari Shapell
   revision_date: 2018-03-27
 ---
+features:
+  bootstrap theme: phillytenant_bootstrap.min.css
+  css: phillytenant_custom.css
+---
 include:
   - attachment.yml
 ---
