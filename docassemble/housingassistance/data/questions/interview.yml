@@ -27,6 +27,21 @@ image sets:
             edit: ic_edit_black_24px.svg
             clock: ic_access_time_black_24px.svg
             city: ic_location_city_black_24px.svg
+            house: ic_home_black_24px.svg
+            map_marker: ic_location_on_black_24px.svg
+            map: ic_map_black_24px.svg
+            envelope: ic_mail_outline_black_24px.svg
+            end: ic_keyboard_tab_black_24px.svg
+            money: ic_attach_money_black_24px.svg
+            flight: ic_flight_black_24px.svg
+            checkbox: ic_check_box_black_24px.svg
+            lightning: ic_flash_on_black_24px.svg
+            suitcase: ic_work_black_24px.svg
+    logos:
+      images:
+        dhs: dhs.png
+        ohs: ohs.jpg
+
 ---
 mandatory: True
 question: |
@@ -44,11 +59,13 @@ fields:
 question: |
   Are you a renter?
 yesno: is_renter
+decoration: house
 ---
 question: |
   Do you need help with a security deposit or with back rent?
 field: assistance_category
 datatype: checkbox
+decoration: envelope
 choices:
   - Security Deposit
   - Rental Arrears
@@ -64,12 +81,14 @@ choices:
 ---
 question: |
   What is your zipcode?
+decoration: map_marker
 fields:
   - Zipcode: zipcode
 ---
 question: |
   Do you live between 52nd and 67th Street and Girard to Baltimore Ave?
 yesno: is_between_52_and_67
+decoration: map
 ---
 question: |
   How long have you lived at your current address?
@@ -79,6 +98,7 @@ fields:
 ---
 question: |
   When does the lease begin and end?
+decoration: end
 fields:
   - Start Date: lease_start_date
     datatype: date
@@ -102,34 +122,41 @@ fields:
 ---
 question: |
   What is your monthly income?
+decoration: money
 fields:
   - Monthly Income: monthly_income
     datatype: number
 ---
 question: |
   Are you a U.S. Military veteran?
+decoration: flight
 yesno: is_veteran
 ---
 question: |
   Are you involved with DHS?
+decoration: dhs
 yesno: is_dhs_involved
 ---
 question: |
   Have you EVER received rental assistance from the Office of Homeless Services?
 subquestion: |
   Grant only given once ever
+decoration: ohs
 yesno: previous_ohs_assistance
 ---
 question: |
   Have you received rental assistance from the County Assistance Office in the past 12 months?
+decoration: checkbox
 yesno: previous_cao_assistance
 ---
 question: |
   Are you an immigrant, refugee or asylum seeker?
+decoration: suitcase
 yesno: is_immigrant
 ---
 question: |
   Have you been in a fire or some other disaster at your home?
+decoration: lightning
 yesno: experienced_disaster
 ---
 mandatory: True
