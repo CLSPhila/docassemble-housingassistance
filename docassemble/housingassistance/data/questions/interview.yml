@@ -16,14 +16,28 @@ features:
 include:
   - attachment.yml
 ---
+image sets:
+    google:
+        attribution: |
+            Icon made by [Google](https://material.io/icons/)
+        images:
+            happyface: ic_tag_faces_black_24px.svg
+            childface: ic_child_care_black_24px.svg
+            people: ic_people_black_24px.svg
+            edit: ic_edit_black_24px.svg
+            clock: ic_access_time_black_24px.svg
+            city: ic_location_city_black_24px.svg
+---
 mandatory: True
 question: |
     We're going to see if we can get you some help making your rental housing more affordable.
+decoration: happyface
 buttons:
     Continue: continue
 ---
 question: |
   Please enter your full name.
+decoration: edit
 fields:
   - no label: full_name
 ---
@@ -41,6 +55,7 @@ choices:
 ---
 question: |
   Do you live in private housing or subsidized/public housing?
+decoration: city
 field: housing_type
 datatype: radio
 choices:
@@ -58,6 +73,7 @@ yesno: is_between_52_and_67
 ---
 question: |
   How long have you lived at your current address?
+decoration: clock
 fields:
   - Years: lease_duration
 ---
@@ -71,6 +87,7 @@ fields:
 ---
 question: |
    How many people live in your household?
+decoration: people
 fields:
   - Number of People: household_size
     datatype: number
@@ -78,6 +95,7 @@ fields:
 ---
 question: |
   What is your age?
+decoration: childface
 fields:
   - Age: age
     datatype: number
