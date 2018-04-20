@@ -1,0 +1,9 @@
+.backbuttoncolor {color:#FBF11A}
+.backbuttoncolor:hover {color:#dfd617}
+.backbuttoncolor:active {color:#dfd617}
+
+@media (max-width: 767px) {
+  .navbar-inverse .navbar-nav .dropdown-menu > li > a {
+      color: #FFFFFF;
+  }
+}
