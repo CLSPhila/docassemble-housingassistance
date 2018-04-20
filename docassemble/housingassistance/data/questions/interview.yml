@@ -47,7 +47,11 @@ image sets:
 ---
 mandatory: True
 question: |
-    We're going to see if we can get you some help making your rental housing more affordable.
+    Keeping rent affordable in Philadelphia can be a struggle. 
+
+    We're a collaborative group of housing advocates, lawyers, and social worksers. We're going to see if we can get you some help making your rental housing more affordable.
+
+    THIS IS ONLY A TEST PROJECT FOR NOW. FEEL FREE TO TRY IT OUT, BUT THE INFORMATION HERE IS NOT COMPLETE, AND NOT NECESSARILY ACCURATE. COME BACK SOON FOR THE REAL THING.
 decoration: happyface
 buttons:
     Continue: continue
