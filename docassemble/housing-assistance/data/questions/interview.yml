@@ -1,13 +1,15 @@
 metadata:
   title: |
-    Philly Tenant Assistance Screener
+    Philly Tenant Assistance Screener (TESTING ONLY)
   short title: |
-    Tenant Assistance Screener
+    Tenant Assistance Screener (TESTING)
   description: |
-    Find tenant assistance services in Philadelphia
+    Find tenant assistance services in Philadelphia (THIS IS A TEST)
   authors:
     - name: Ari Shapell
-  revision_date: 2018-03-27
+    - name: Rasheedah Phillips
+    - name: Nate Vogel
+  revision_date: 2018-04-18
 ---
 include:
   - attachment.yml
