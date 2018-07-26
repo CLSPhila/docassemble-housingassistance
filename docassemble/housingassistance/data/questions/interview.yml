@@ -107,6 +107,8 @@ question: |
 decoration: map_marker
 fields:
   - Zipcode: zipcode
+    required: False
+    default: 'none'
 ---
 question: |
   Do you live between 52nd and 67th Street and Girard to Baltimore Ave?
