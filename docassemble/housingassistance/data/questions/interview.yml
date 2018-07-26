@@ -12,7 +12,7 @@ metadata:
   revision_date: 2018-04-18
 ---
 features:
-  bootstrap theme: phillytenant_bootstrap.min.css
+  #bootstrap theme: phillytenant_bootstrap.min.css
   css: phillytenant_custom.css
 ---
 include:
@@ -80,12 +80,13 @@ decoration: house
 ---
 question: |
   Do you need help with a Security Deposit or with Back Rent?
-field: assistance_category
-datatype: checkbox
 decoration: envelope
-choices:
-  - Security Deposit
-  - Back Rent
+fields:
+  - Please Choose: assistance_category
+    datatype: checkboxes
+    choices:
+      - Security Deposit
+      - Back Rent
 auto terms:
   Security Deposit: Money that you put down before you move in that is kept until the end of your lease and applied to any damages to the property or unpaid rent after you move out
   Back Rent: Back rent that accrues when you have fallen behind on your regular rent payments. Also called Rental Arrears.
@@ -153,7 +154,7 @@ fields:
     datatype: number
 ---
 question: |
-  Are you a U.S. Military veteran?
+  Are you or a member of your household a U.S. Military veteran?
 decoration: flight
 yesno: is_veteran
 ---
