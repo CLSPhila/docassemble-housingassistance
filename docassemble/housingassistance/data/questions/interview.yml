@@ -47,14 +47,25 @@ image sets:
 ---
 mandatory: True
 question: |
-    Keeping rent affordable in Philadelphia can be a struggle. 
+    Keeping rent affordable in Philadelphia can be a struggle.
 
-    We're a collaborative group of housing advocates, lawyers, and social workers. We're going to see if we can get you some help making your rental housing more affordable.
+    We're a collaborative group of housing advocates, lawyers, and social workers. We've built this site to help you find {Rental Assistance}.
+
+    {Rental Assistance} is money that an organization or government agency
+    provides you to help pay for rental arrears (back rent) or a security
+    deposit.
+
+    Let's see if we can get you {Rental Assistance} to make your rental housing more affordable.
 
     THIS IS ONLY A TEST PROJECT FOR NOW. FEEL FREE TO TRY IT OUT, BUT THE INFORMATION HERE IS NOT COMPLETE, AND NOT NECESSARILY ACCURATE. COME BACK SOON FOR THE REAL THING.
 decoration: happyface
 buttons:
     Continue: continue
+terms:
+  Rental Assistance: |
+      Rental Assistance is money that an organization or government agency
+      provides you to help pay for rental arrears (back rent) or a security
+      deposit.
 ---
 question: |
   Please enter your full name.
@@ -68,22 +79,28 @@ yesno: is_renter
 decoration: house
 ---
 question: |
-  Do you need help with a security deposit or with back rent?
+  Do you need help with a Security Deposit or with Back Rent?
 field: assistance_category
 datatype: checkbox
 decoration: envelope
 choices:
   - Security Deposit
-  - Rental Arrears
+  - Back Rent
+auto terms:
+  Security Deposit: Money that you put down before you move in that is kept until the end of your lease and applied to any damages to the property or unpaid rent after you move out
+  Back Rent: Back rent that accrues when you have fallen behind on your regular rent payments. Also called Rental Arrears.
 ---
 question: |
-  Do you live in private housing or subsidized/public housing?
+  Do you live in Private Housing or Subsidized/Public Housing?
 decoration: city
 field: housing_type
 datatype: radio
 choices:
   - Private Housing: private
   - Subsidized/Public Housing: public
+auto terms:
+  Private Housing: You have a private landlord and are paying regular monthly rent without any assistance or voucher.
+  Subsidized/Public Housing: You receive a voucher or some other form of ongoing assistance with paying monthly rent, or you have a reduced monthly rent.
 ---
 question: |
   What is your zipcode?
