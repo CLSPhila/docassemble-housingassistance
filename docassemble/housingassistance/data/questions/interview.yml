@@ -51,9 +51,7 @@ question: |
 
     We're a collaborative group of housing advocates, lawyers, and social workers. We've built this site to help you find {Rental Assistance}.
 
-    {Rental Assistance} is money that an organization or government agency
-    provides you to help pay for rental arrears (back rent) or a security
-    deposit.
+    {Rental Assistance} is money from the government or an organization to pay back rent or pay the security deposit.
 
     Let's see if we can get you {Rental Assistance} to make your rental housing more affordable.
 
@@ -63,9 +61,7 @@ buttons:
     Continue: continue
 terms:
   Rental Assistance: |
-      Rental Assistance is money that an organization or government agency
-      provides you to help pay for rental arrears (back rent) or a security
-      deposit.
+      Rental Assistance is money from the government or an organization to pay back rent or pay the security deposit.
 ---
 question: |
   Please enter your full name.
@@ -88,7 +84,7 @@ fields:
       - Security Deposit
       - Back Rent
 auto terms:
-  Security Deposit: Money that you put down before you move in that is kept until the end of your lease and applied to any damages to the property or unpaid rent after you move out
+  Security Deposit: Money you pay to your landlord which your landlord holds until you leave. Your landlord may use it to repair damage you cause or to pay any back rent you owe. Your landlord must return it to you if you did not cause damage and paid all rent.
   Back Rent: Back rent that accrues when you have fallen behind on your regular rent payments. Also called Rental Arrears.
 ---
 question: |
@@ -100,7 +96,7 @@ choices:
   - Private Housing: private
   - Subsidized/Public Housing: public
 auto terms:
-  Private Housing: You have a private landlord and are paying regular monthly rent without any assistance or voucher.
+  Private Housing: You pay the full rent to your landlord with your money with no money paid by the Housing Authority or any government agency.
   Subsidized/Public Housing: You receive a voucher or some other form of ongoing assistance with paying monthly rent, or you have a reduced monthly rent.
 ---
 question: |
