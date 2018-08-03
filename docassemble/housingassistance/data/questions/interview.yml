@@ -56,10 +56,8 @@ question: |
     Let’s see if we can help you get rental assistance to make your rental housing more affordable.
 
 
-    Please note that using the screener is not a guarantee that you will receive rental assistance from the listed agencies.  You will still need to visit the agencies and submit an application to be qualified for assistance.  If you have questions about this screener, please contact pepp-management@clsphila.org.
+    Please note that using the screener is not a guarantee that you will receive rental assistance from the listed agencies.  You will still need to visit the agencies and submit an application to be qualified for assistance. In addition, this is version 1.0 of the screener. It may contain errors or inaccuracies that will be updated in subsequent versions.  If you have questions about this screener, please contact pepp-management@clsphila.org.
 
-
-    THIS IS ONLY A TEST PROJECT FOR NOW. FEEL FREE TO TRY IT OUT, BUT THE INFORMATION HERE IS NOT COMPLETE, AND NOT NECESSARILY ACCURATE. COME BACK SOON FOR THE REAL THING.
 decoration: happyface
 buttons:
     Continue: continue
