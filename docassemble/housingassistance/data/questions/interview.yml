@@ -47,13 +47,17 @@ image sets:
 ---
 mandatory: True
 question: |
-    Keeping rent affordable in Philadelphia can be a struggle.
+    Welcome to the Philly Eviction Prevention Project Rental Assistance Screener! PEPP is a collaborative group of housing advocates, lawyers, and social workers. We’ve built this site to help you find Rental Assistance.
 
-    We're a collaborative group of housing advocates, lawyers, and social workers. We've built this site to help you find {Rental Assistance}.
 
-    {Rental Assistance} is money from the government or an organization to pay back rent or pay the security deposit.
+    Keeping rent affordable in Philadelphia can be a struggle and it can be difficult to navigate the requirements of all of the agencies that provide rental assistance. Rental Assistance is money from the government or an organization to pay back rent or pay the security deposit.
 
-    Let's see if we can get you {Rental Assistance} to make your rental housing more affordable.
+
+    Let’s see if we can help you get rental assistance to make your rental housing more affordable.
+
+
+    Please note that using the screener is not a guarantee that you will receive rental assistance from the listed agencies.  You will still need to visit the agencies and submit an application to be qualified for assistance.  If you have questions about this screener, please contact pepp-management@clsphila.org.
+
 
     THIS IS ONLY A TEST PROJECT FOR NOW. FEEL FREE TO TRY IT OUT, BUT THE INFORMATION HERE IS NOT COMPLETE, AND NOT NECESSARILY ACCURATE. COME BACK SOON FOR THE REAL THING.
 decoration: happyface
