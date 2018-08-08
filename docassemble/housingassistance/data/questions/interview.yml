@@ -99,7 +99,8 @@ choices:
   - Subsidized/Public Housing: public
 auto terms:
   Private Housing: You pay the full rent to your landlord with your money with no money paid by the Housing Authority or any government agency.
-  Subsidized/Public Housing: You receive a voucher or some other form of ongoing assistance with paying monthly rent, or you have a reduced monthly rent: Philadelphia Housing Authority, Section 8 voucher, project-based subsidy or LIHTC or other City, State or Federal housing assistance.
+  Subsidized/Public Housing: |
+    You receive a voucher or some other form of ongoing assistance with paying monthly rent, or you have a reduced monthly rent: Philadelphia Housing Authority, Section 8 voucher, project-based subsidy or LIHTC or other City, State or Federal housing assistance.
 ---
 question: |
   What is your zipcode?
