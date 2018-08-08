@@ -71,7 +71,7 @@ decoration: edit
 fields:
   - no label: full_name
 ---
-question: |h
+question: |
   Are you a renter?
 yesno: is_renter
 decoration: house
