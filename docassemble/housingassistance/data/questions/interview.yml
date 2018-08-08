@@ -2,7 +2,7 @@ metadata:
   title: |
     Get Rental Housing Assistance
   short title: |
-    Get Rental Housing Assistance 
+    Get Rental Housing Assistance
   description: |
     Find tenant assistance services in Philadelphia
   authors:
@@ -71,7 +71,7 @@ decoration: edit
 fields:
   - no label: full_name
 ---
-question: |
+question: |h
   Are you a renter?
 yesno: is_renter
 decoration: house
@@ -99,7 +99,7 @@ choices:
   - Subsidized/Public Housing: public
 auto terms:
   Private Housing: You pay the full rent to your landlord with your money with no money paid by the Housing Authority or any government agency.
-  Subsidized/Public Housing: You receive a voucher or some other form of ongoing assistance with paying monthly rent, or you have a reduced monthly rent.
+  Subsidized/Public Housing: You receive a voucher or some other form of ongoing assistance with paying monthly rent, or you have a reduced monthly rent: Philadelphia Housing Authority, Section 8 voucher, project-based subsidy or LIHTC or other City, State or Federal housing assistance.
 ---
 question: |
   What is your zipcode?
@@ -107,7 +107,7 @@ decoration: map_marker
 fields:
   - Zipcode: zipcode
     required: False
-    default: 'none'
+    default: ''
 ---
 question: |
   Do you live between 52nd and 67th Street and Girard to Baltimore Ave?
