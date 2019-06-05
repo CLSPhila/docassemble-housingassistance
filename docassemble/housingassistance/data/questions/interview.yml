@@ -163,9 +163,9 @@ decoration: dhs
 yesno: is_dhs_involved
 ---
 question: |
-  Have you EVER received rental assistance from the Office of Homeless Services?
+  Have you received rental assistance from the Office of Homeless Services last year?
 subquestion: |
-  Grant only given once ever
+  Grant only given once a year, from when you last received assistance.
 decoration: ohs
 yesno: previous_ohs_assistance
 ---
@@ -258,8 +258,8 @@ code: |
       'is_included': is_dhs_involved
     },
     {
-      'name': 'Office of Homeless Services',
-      'availability': 'go to the Center City location at 1430 Cherry St, Philadelphia, PA 19102 or the North Philadelphia location at 5252 North 13th St, Philadelphia, PA 19141 on Monday - Thursday, 9am - 3pm or call 215-685-9087',
+      'name': 'Apple Tree Philly',
+      'availability': 'go to the Center City location at 1430 Cherry St, Third Floor, Philadelphia, PA 19102 or the North Philadelphia location at 5252 North 13th St, Philadelphia, PA 19141 on Monday - Thursday, 9am - 3pm or call 215-685-9087',
       'is_included': (previous_ohs_assistance == False and is_under_ohs_income_req())
     },
     {
