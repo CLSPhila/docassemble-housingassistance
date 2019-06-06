@@ -50,7 +50,7 @@ question: |
     Welcome to the Philly Eviction Prevention Project Rental Assistance Screener!
 subquestion: |
 
-    Keeping rent affordable in Philadelphia can be a struggle. Let’s see if we can help you get rental assistance to make your rental housing more affordable.
+    Keeping rent affordable in Philadelphia can be a struggle. Let’s see if we can help you find where to go to apply for rental assistance.
 
     Please note that using the screener is not a guarantee that you will receive rental assistance from the listed agencies. You will still need to visit the agencies and submit an application to be qualified for assistance.
 
@@ -112,8 +112,12 @@ question: |
   Do you live between 52nd and 67th Street and Girard to Baltimore Ave?
 subquestion: |
   <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1RptjiKz7rfDeIsKjQQJoqrqQAJYxZbjP" width="640" height="480"></iframe>
-yesno: is_between_52_and_67
+yesno: explicit_is_between_52_and_67
 decoration: map
+---
+code: |
+  zip_list =  ["19139", "19143", "19104", "19151", "19131"]
+  is_between_52_and_67 = False if zipcode not in zip_list else explicit_is_between_52_and_67
 ---
 question: |
   How long have you lived at your current address?
@@ -163,7 +167,7 @@ decoration: dhs
 yesno: is_dhs_involved
 ---
 question: |
-  Have you received rental assistance from the Office of Homeless Services last year?
+  Have you received rental assistance from the Office of Homeless Services in the last year?
 subquestion: |
   Grant only given once a year, from when you last received assistance.
 decoration: ohs
@@ -198,7 +202,11 @@ subquestion: |
   Based on the answers you provided to our questions, we think you may be able to seek rental assistance from the following organizations. Please note that you will still need to visit and apply separately for assistance at each organization.
 
   % for source in sources:
+
+
   * **${ source['name'] }**: To apply for assistance, you can ${ source['availability'] }
+
+
   % endfor
 
   Download the PDF or RTF below for instructions about how to apply for assistance at each organization.
